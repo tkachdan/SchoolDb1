@@ -16,10 +16,7 @@ public class CoureseDAOTest {
 
     @Test
     public void createTest() {
-        Course course = new Course("course", 5);
-        courseNewDao.createObject(course);
-        Course course1 = courseNewDao.readObjectById(course.getId());
-        Assert.assertEquals(course, course1);
+
 
     }
 

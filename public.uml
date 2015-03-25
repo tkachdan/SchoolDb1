@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>27dfce90-4712-4252-8d31-d33d150ad5fd.schema:school_db.public</OriginalElement>
+  <nodes>
+    <node x="72.59444444444449" y="10.5">27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.student</node>
+    <node x="566.8944444444445" y="267.0">27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.assignment</node>
+    <node x="847.7694444444445" y="472.0">27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.course_exam</node>
+    <node x="997.808547008547" y="363.88461538461536">27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.teacher_course</node>
+    <node x="379.8944444444445" y="256.5">27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.examresult</node>
+    <node x="733.8944444444445" y="256.7692307692308">27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.exam</node>
+    <node x="190.8944444444445" y="288.5">27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.student_course</node>
+    <node x="531.7534188034188" y="-61.03846153846152">27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.course</node>
+    <node x="317.6442307692308" y="523.5384615384615">27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.student_assignment</node>
+    <node x="561.375" y="472.0">27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.exam_examresult</node>
+    <node x="752.65405982906" y="-82.30769230769229">27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.teacher</node>
+    <node x="41.0" y="538.9230769230769">27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.exam_student</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.student_assignment" target="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.assignment">
+      <point x="42.25" y="-35.5" />
+      <point x="443.625" y="432.0" />
+      <point x="640.3944444444445" y="432.0" />
+      <point x="0.0" y="57.0" />
+    </edge>
+    <edge source="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.examresult" target="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.student">
+      <point x="-55.66666666666663" y="-67.5" />
+      <point x="407.7277777777779" y="186.0" />
+      <point x="218.7194444444445" y="186.0" />
+      <point x="62.625" y="67.5" />
+    </edge>
+    <edge source="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.exam" target="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.course">
+      <point x="-46.75" y="-78.0" />
+      <point x="780.6444444444445" y="206.0" />
+      <point x="631.4777777777778" y="206.0" />
+      <point x="13.916666666666629" y="67.5" />
+    </edge>
+    <edge source="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.exam_examresult" target="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.exam">
+      <point x="37.5" y="-35.5" />
+      <point x="673.875" y="452.0" />
+      <point x="827.3944444444445" y="452.0" />
+      <point x="0.0" y="78.0" />
+    </edge>
+    <edge source="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.assignment" target="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.teacher">
+      <point x="36.75" y="-57.0" />
+      <point x="677.1444444444445" y="226.0" />
+      <point x="827.3944444444445" y="226.0" />
+      <point x="-23.375" y="78.0" />
+    </edge>
+    <edge source="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.exam_student" target="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.exam">
+      <point x="37.5" y="-35.5" />
+      <point x="153.5" y="442.0" />
+      <point x="765.0611111111111" y="442.0" />
+      <point x="-62.33333333333337" y="78.0" />
+    </edge>
+    <edge source="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.teacher_course" target="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.course">
+      <point x="-42.0" y="-35.5" />
+      <point x="1040.577777777778" y="186.0" />
+      <point x="687.1444444444444" y="186.0" />
+      <point x="69.58333333333326" y="67.5" />
+    </edge>
+    <edge source="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.examresult" target="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.course">
+      <point x="0.0" y="-67.5" />
+      <point x="463.3944444444445" y="206.0" />
+      <point x="575.8111111111111" y="206.0" />
+      <point x="-41.75" y="67.5" />
+    </edge>
+    <edge source="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.examresult" target="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.teacher">
+      <point x="55.666666666666686" y="-67.5" />
+      <point x="519.8303418803418" y="138.3076923076923" />
+      <point x="778.3367521367521" y="137.53846153846152" />
+      <point x="-70.125" y="78.0" />
+    </edge>
+    <edge source="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.student_assignment" target="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.student">
+      <point x="-42.25" y="-35.5" />
+      <point x="359.125" y="432.0" />
+      <point x="180.3944444444445" y="432.0" />
+      <point x="180.3944444444445" y="226.0" />
+      <point x="135.2194444444445" y="226.0" />
+      <point x="-20.875" y="67.5" />
+    </edge>
+    <edge source="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.student_course" target="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.course">
+      <point x="42.25" y="-35.5" />
+      <point x="317.6444444444445" y="196.0" />
+      <point x="547.9777777777778" y="196.0" />
+      <point x="-69.58333333333331" y="67.5" />
+    </edge>
+    <edge source="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.course_exam" target="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.course">
+      <point x="40.25" y="-35.5" />
+      <point x="970.057905982906" y="244.46153846153845" />
+      <point x="658.5418803418804" y="242.9230769230769" />
+      <point x="41.75" y="67.5" />
+    </edge>
+    <edge source="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.course_exam" target="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.exam">
+      <point x="-40.25" y="-35.5" />
+      <point x="888.0194444444445" y="452.0" />
+      <point x="889.7277777777779" y="452.0" />
+      <point x="62.33333333333337" y="78.0" />
+    </edge>
+    <edge source="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.assignment" target="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.course">
+      <point x="-36.75" y="-57.0" />
+      <point x="-13.916666666666629" y="67.5" />
+    </edge>
+    <edge source="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.teacher_course" target="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.teacher">
+      <point x="42.0" y="-35.5" />
+      <point x="1124.577777777778" y="176.0" />
+      <point x="920.8944444444445" y="176.0" />
+      <point x="70.125" y="78.0" />
+    </edge>
+    <edge source="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.exam_student" target="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.student">
+      <point x="-37.5" y="-35.5" />
+      <point x="78.5" y="226.0" />
+      <point x="93.46944444444449" y="226.0" />
+      <point x="-62.625" y="67.5" />
+    </edge>
+    <edge source="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.exam_examresult" target="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.examresult">
+      <point x="-37.5" y="-35.5" />
+      <point x="598.875" y="422.0" />
+      <point x="463.3944444444445" y="422.0" />
+      <point x="0.0" y="67.5" />
+    </edge>
+    <edge source="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.exam" target="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.teacher">
+      <point x="46.75" y="-78.0" />
+      <point x="23.375" y="78.0" />
+    </edge>
+    <edge source="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.student_course" target="27dfce90-4712-4252-8d31-d33d150ad5fd.table:school_db.public.student">
+      <point x="-42.25" y="-35.5" />
+      <point x="233.1444444444445" y="216.0" />
+      <point x="176.9694444444445" y="216.0" />
+      <point x="20.875" y="67.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.3000000000000003" x="614.4615384615383" y="271.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+  </Categories>
+</Diagram>
+

@@ -1,5 +1,7 @@
 package persistence.model;
 
+import com.sun.istack.internal.NotNull;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -11,16 +13,14 @@ public class Teacher extends AbstractEntity {
     @Id
     @GeneratedValue
     private int id;
-    @Column(name = "firstName")
+    @NotNull
     private String firstName;
-    @Column(name = "lastName")
+    @NotNull
     private String lastName;
-    @Column(name = "sallary")
     private double sallary;
-    @Column(name = "address")
     private String address;
-    @Column(name = "mobileNumber")
-    private String mobileNumber;
+    @NotNull
+    private String email;
     @ManyToMany
     private Set<Course> lecturedCourses;
 

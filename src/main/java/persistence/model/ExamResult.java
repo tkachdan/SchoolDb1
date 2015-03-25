@@ -1,4 +1,7 @@
 package persistence.model;
+
+import com.sun.istack.internal.NotNull;
+
 import javax.persistence.*;
 
 import javax.persistence.Column;
@@ -11,49 +14,21 @@ import java.util.Date;
  * Created by dan on 11.3.15.
  */
 @Entity
-public class ExamResult extends AbstractEntity{
+public class ExamResult extends AbstractEntity {
+
     @Id
     @GeneratedValue
     private int id;
-
+    @NotNull
+    private Date date;
+    @NotNull
     @ManyToOne
     private Course course;
+    @NotNull
     @ManyToOne
     private Student student;
-    private Date date;
+    @NotNull
+    @ManyToOne
+    private Teacher teacher;
 
-    public ExamResult() {
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public Course getCourse() {
-        return course;
-    }
-
-    public void setCourse(Course course) {
-        this.course = course;
-    }
-
-    public Student getStudent() {
-        return student;
-    }
-
-    public void setStudent(Student student) {
-        this.student = student;
-    }
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
 }

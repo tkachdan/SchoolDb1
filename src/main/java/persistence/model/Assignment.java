@@ -1,5 +1,7 @@
 package persistence.model;
 
+import com.sun.istack.internal.NotNull;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -14,12 +16,12 @@ public class Assignment extends AbstractEntity {
     @Id
     @GeneratedValue
     private int id;
-
+    @NotNull
     private Date date;
-
+    @NotNull
     @ManyToOne
     private Teacher assignedBy;
-
+    @NotNull
     @ManyToOne
     private Course course;
 
