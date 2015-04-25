@@ -18,9 +18,8 @@ import java.util.Vector;
 public class StudentTableFrame extends JFrame {
 
     public static void main(String[] args) {
-
-        new StudentTableFrame();
-
+        StudentTableFrame studentTableFrame = new StudentTableFrame();
+        studentTableFrame.repaint();
     }
 
     public StudentTableFrame() throws HeadlessException {
@@ -29,9 +28,9 @@ public class StudentTableFrame extends JFrame {
         buttonPannel.setLayout(new FlowLayout());
 
         final JTable table = new JTable(new StudentTableModel());
-        table.setPreferredScrollableViewportSize(new Dimension(500, 70));
+        table.setPreferredScrollableViewportSize(new Dimension(500, 400));
         table.setFillsViewportHeight(true);
-
+        setBounds(500, 300, 200, 200);
         StudentTableModel a = (StudentTableModel) table.getModel();
         StudentDAOImpl studentDAO = new StudentDAOImpl();
         Collection<Student> allObjects = studentDAO.getAllObjects(Student.class);
@@ -45,68 +44,124 @@ public class StudentTableFrame extends JFrame {
             a.insertData(values);
         }
 
-        JScrollPane scrollPane = new JScrollPane(table);
-        add(scrollPane);
+
         JButton addButton = new JButton("Add");
+
         addButton.addActionListener(actionEvent -> {
             JFrame addJFrame = new JFrame("Add student");
-            JButton deleteButton = new JButton("Add");
-            JButton cancelButton = new JButton("Cancel");
-            deleteButton.addActionListener(actionEvent1 -> {
-                for (int i : table.getSelectedRows()) {
-                    studentDAO.readObjectById(i);
-                }
-                JOptionPane.showMessageDialog(this,
-                        "Students with id " + Arrays.toString(table.getSelectedRows()) + " have been deleted");
-            });
-            cancelButton.addActionListener(actionEvent1 -> dispose());
+
+            addJFrame.setSize(200, 200);
+            addJFrame.setLocationRelativeTo(this);
             addJFrame.setLayout(new FlowLayout());
-            addJFrame.getContentPane().add(cancelButton);
-            addJFrame.getContentPane().add(deleteButton);
-            addJFrame.pack();
+
+            JPanel inputPanel = new JPanel();
+            inputPanel.setLayout(new GridLayout(6, 1));
+            JLabel emailLabel = new JLabel("Email:");
+            JLabel firstNameLabel = new JLabel("First name:");
+            JLabel lastNameLabel = new JLabel("Last name:");
+
+            JTextField emailField = new JFormattedTextField();
+            emailField.setColumns(15);
+            JTextField firstNameField = new JFormattedTextField();
+            firstNameField.setColumns(15);
+            JTextField lastNameField = new JFormattedTextField();
+            lastNameField.setColumns(15);
+
+            JButton addButtonInner = new JButton("Add");
+            addButtonInner.addActionListener(actionEvent1 -> {
+                Student student = new Student();
+                student.setEmail(emailField.getText());
+                student.setFirstName(firstNameField.getText());
+                student.setLastName(lastNameField.getText());
+                int id;
+                if ((id = studentDAO.createObject(student)) != -1) {
+                    JOptionPane.showMessageDialog(this,
+                            "Student added.");
+                    student.setId(id);
+                    a.insertData(new Object[]{student.getId(), student.getEmail(), student.getFirstName()
+                            , student.getLastName(), student.getMarkAverage()});
+                } else {
+                    JOptionPane.showMessageDialog(this,
+                            "Student already added",
+                            "Error",
+                            JOptionPane.ERROR_MESSAGE);
+                }
+                addJFrame.dispose();
+            });
+
+            JButton cancelButton = new JButton("Cancel");
+            cancelButton.addActionListener(e -> addJFrame.dispose());
+
+            inputPanel.add(emailLabel);
+            inputPanel.add(emailField);
+            inputPanel.add(firstNameLabel);
+            inputPanel.add(firstNameField);
+            inputPanel.add(lastNameLabel);
+            inputPanel.add(lastNameField);
+
+
+            JPanel buttonPanel = new JPanel();
+            buttonPanel.add(cancelButton);
+            buttonPanel.add(addButtonInner);
+            addJFrame.setLayout(new FlowLayout());
+            addJFrame.getContentPane().add(inputPanel);
+            addJFrame.getContentPane().add(buttonPanel);
             addJFrame.setVisible(true);
         });
 
 
         JButton removeButton = new JButton("Remove");
         removeButton.addActionListener(actionEvent -> {
-            JFrame areYouSuerJFrame = new JFrame("Deleting");
+
+            if (table.getSelectedRows().length == 0) {
+                JOptionPane.showMessageDialog(this,
+                        "No students to delete selected",
+                        "Error",
+                        JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            JFrame deleteFrame = new JFrame("Deleting");
+            deleteFrame.setLocationRelativeTo(this);
+            deleteFrame.setSize(300, 100);
+
             JLabel label = new JLabel("Do you want to deleter rowns " + Arrays.toString(table.getSelectedRows()));
             JButton deleteButton = new JButton("Delete");
             JButton cancelButton = new JButton("Cancel");
             deleteButton.addActionListener(actionEvent1 -> {
                 for (int i : table.getSelectedRows()) {
-                    studentDAO.deleteObject(i);
+                    studentDAO.deleteObject((Integer) table.getValueAt(i, 0));
+                    a.removeRow(i);
                 }
                 JOptionPane.showMessageDialog(this,
-                        "Students with id " + Arrays.toString(table.getSelectedRows()) + " have been deleted");
+                        "Students have been deleted");
+                deleteFrame.dispose();
             });
-            cancelButton.addActionListener(actionEvent1 -> dispose());
-            areYouSuerJFrame.setLayout(new FlowLayout());
-            areYouSuerJFrame.getContentPane().add(label);
-            areYouSuerJFrame.getContentPane().add(cancelButton);
-            areYouSuerJFrame.getContentPane().add(deleteButton);
-            areYouSuerJFrame.pack();
-            areYouSuerJFrame.setVisible(true);
+            cancelButton.addActionListener(actionEvent1 -> deleteFrame.dispose());
+            deleteFrame.setLayout(new FlowLayout());
+            deleteFrame.getContentPane().add(label);
+            deleteFrame.getContentPane().add(cancelButton);
+            deleteFrame.getContentPane().add(deleteButton);
+            deleteFrame.setVisible(true);
         });
 
         JButton editButton = new JButton("Edit");
-        editButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
+        editButton.addActionListener(actionEvent -> {
 
-            }
         });
+        setLayout(new GridBagLayout());
+
+        JScrollPane scrollPane = new JScrollPane(table);
+        getContentPane().add(scrollPane);
 
         buttonPannel.add(addButton);
         buttonPannel.add(removeButton);
         buttonPannel.add(editButton);
         getContentPane().add(buttonPannel);
 
-
-        setLayout(new GridLayout(2, 1));
         pack();
         setVisible(true);
+        repaint();
     }
 
     class StudentTableModel extends AbstractTableModel {
@@ -123,6 +178,7 @@ public class StudentTableFrame extends JFrame {
         public int getRowCount() {
             return data.size();
         }
+
 
         @Override
         public Object getValueAt(int row, int col) {
@@ -148,8 +204,8 @@ public class StudentTableFrame extends JFrame {
 
         public void insertData(Object[] values) {
             data.add(new Vector<>());
-            for (int i = 0; i < values.length; i++) {
-                (data.get(data.size() - 1)).add(values[i]);
+            for (Object value : values) {
+                (data.get(data.size() - 1)).add(value);
             }
             fireTableDataChanged();
         }

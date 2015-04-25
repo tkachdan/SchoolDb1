@@ -5,6 +5,7 @@ package persistence.DAO.Impl;
  */
 
 import org.hibernate.Session;
+import org.hibernate.exception.ConstraintViolationException;
 import persistence.DAO.DAO;
 import persistence.model.AbstractEntity;
 import utils.HibernateService;
@@ -16,13 +17,17 @@ public abstract class DAOImpl<T extends AbstractEntity> implements DAO<T> {
 
     @Override
     public int createObject(T t) {
-        Session session = HibernateService.getSession();
-        session.beginTransaction();
+        try {
+            Session session = HibernateService.getSession();
+            session.beginTransaction();
 
-        session.save(t);
-        session.getTransaction().commit();
-        session.close();
-        return t.getId();
+            session.save(t);
+            session.getTransaction().commit();
+            session.close();
+            return t.getId();
+        }catch (ConstraintViolationException exception){
+            return -1;
+        }
     }
 
     @Override
