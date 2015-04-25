@@ -17,7 +17,7 @@ public class TeacherDAOTest {
 
     @Test
     public void deleteTest(){
-        Teacher teacher = new Teacher("hello","address","lastName","firstName");
+        Teacher teacher = new Teacher("asdasd","qweqwe","werwer","sdfsdf");
         teacherDAO.createObject(teacher);
         teacherDAO.deleteObject(teacher.getId());
         Assert.assertNull(teacherDAO.readObjectById(teacher.getId()));
@@ -25,7 +25,7 @@ public class TeacherDAOTest {
 
     @Test
     public void updateTest(){
-        Teacher teacher = new Teacher("hello","address","lastName","firstName");
+        Teacher teacher = new Teacher("qwerwer","dsf","fgdfg","xcvxc");
         teacherDAO.createObject(teacher);
         teacher.setAddress("newAdress");
         teacherDAO.updateObject(teacher);
