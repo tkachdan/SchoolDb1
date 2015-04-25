@@ -23,18 +23,15 @@ public class StudentDAOImpl extends DAOImpl<Student> {
         return super.updateObject(student);
     }
 
-    @Override
-    public boolean deleteObject(int id, Class<Student> studentClass) {
-        return super.deleteObject(id, studentClass);
+    public boolean deleteObject(int id) {
+        return super.deleteObject(id, Student.class);
     }
 
-    @Override
-    public boolean isObjectInDatabase(int id, Class<Student> studentClass) {
-        return super.isObjectInDatabase(id, studentClass);
+    public boolean isObjectInDatabase(int id) {
+        return super.isObjectInDatabase(id, Student.class);
     }
 
-    @Override
-    public Collection<Student> getAllObjects(Class<Student> studentClass) {
-        return super.getAllObjects(studentClass);
+    public Collection<Student> getAllObjects() {
+        return super.getAllObjects(Student.class);
     }
 }

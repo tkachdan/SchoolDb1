@@ -36,6 +36,9 @@ public class Assignment extends AbstractEntity {
         this.id = id;
     }
 
+    public Assignment() {
+    }
+
     public Date getDate() {
         return date;
     }
