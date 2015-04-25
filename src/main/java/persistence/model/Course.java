@@ -29,4 +29,6 @@ public class Course extends AbstractEntity {
     @NotNull
     private Date endDate;
 
+    public Course() {
+    }
 }

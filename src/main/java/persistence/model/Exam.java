@@ -25,17 +25,15 @@ public class Exam extends AbstractEntity {
     private Date registrationTill;
 
     @NotNull
-
     @OneToOne
     private Teacher teacher;
 
     @ManyToMany
-    private Set<Student> registeredStudents = new HashSet<Student>();
+    private Set<Student> registeredStudents = new HashSet<>();
 
     @OneToMany
-    Set<Course> courses = new HashSet<Course>();
+    Set<Course> courses = new HashSet<>();
 
-    @Enumerated
-    private Mark mark;
-
+    public Exam() {
+    }
 }

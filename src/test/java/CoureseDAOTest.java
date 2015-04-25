@@ -14,6 +14,7 @@ public class CoureseDAOTest {
     @Test
     public void createTest() {
         Course course = new Course();
+        course.setId(4);
         courseDao.createObject(course);
     }
 
