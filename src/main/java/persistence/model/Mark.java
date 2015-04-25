@@ -10,5 +10,4 @@ public enum Mark {
     D,
     E,
     F
-
 }

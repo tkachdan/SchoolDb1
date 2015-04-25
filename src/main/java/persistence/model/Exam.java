@@ -12,26 +12,30 @@ import java.util.Set;
  */
 @Entity
 public class Exam extends AbstractEntity {
+
     @Id
     @GeneratedValue
     private int id;
-    @NotNull
-    private Date cariageDate;
+
+
     private Date registrationFrom;
     @NotNull
-    private Date registrationTill;
+    private Date cariageDate;
     @NotNull
+    private Date registrationTill;
+
+    @NotNull
+
     @OneToOne
     private Teacher teacher;
 
     @ManyToMany
-    private Set<Student> registeredStudents = new HashSet<>();
+    private Set<Student> registeredStudents = new HashSet<Student>();
 
     @OneToMany
-    private Set<ExamResult> examResultSet = new HashSet<>();
+    Set<Course> courses = new HashSet<Course>();
 
-    @OneToOne
-    private Course course;
-
+    @Enumerated
+    private Mark mark;
 
 }

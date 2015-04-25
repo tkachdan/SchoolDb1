@@ -13,6 +13,7 @@ import java.util.Date;
  */
 @Entity
 public class Assignment extends AbstractEntity {
+
     @Id
     @GeneratedValue
     private int id;
@@ -54,6 +55,8 @@ public class Assignment extends AbstractEntity {
     public Course getCourse() {
         return course;
     }
+
+
 
     public void setCourse(Course course) {
         this.course = course;

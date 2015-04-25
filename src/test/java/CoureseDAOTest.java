@@ -1,7 +1,5 @@
 import persistence.DAO.Impl.CourseDAOImpl;
-import junit.framework.Assert;
 import persistence.DAO.Impl.StudentDAOImpl;
-import persistence.model.Assignment;
 import persistence.model.Course;
 import org.junit.Test;
 import persistence.model.Student;
@@ -11,20 +9,18 @@ import persistence.model.Student;
  */
 public class CoureseDAOTest {
 
-    CourseDAOImpl courseNewDao = new CourseDAOImpl();
+    CourseDAOImpl courseDao = new CourseDAOImpl();
     StudentDAOImpl studentDAO = new StudentDAOImpl();
-
     @Test
     public void createTest() {
-
-
+        Course course = new Course();
+        courseDao.createObject(course);
     }
 
     @Test
     public void createStrudent() {
         Student student = new Student("name", "lase", "mail-klokot");
         studentDAO.createObject(student);
-
     }
 
 

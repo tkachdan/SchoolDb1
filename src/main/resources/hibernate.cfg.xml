@@ -10,15 +10,15 @@
         <property name="connection.username">postgres</property>
         <property name="connection.password">test</property>
         <property name="connection_pool_size">1</property>
-        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="show_sql">true</property>
         <mapping class="persistence.model.Course"/>
-        <mapping class="persistence.model.ExamResult"/>
         <mapping class="persistence.model.Assignment"/>
         <mapping class="persistence.model.Exam"/>
-
+        <mapping class="persistence.model.Mark"/>
         <mapping class="persistence.model.Student"/>
         <mapping class="persistence.model.Teacher"/>
+        <mapping class="persistence.model.Student_Exam"/>
 
 
 

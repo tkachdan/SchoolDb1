@@ -1,34 +1,13 @@
 package persistence.model;
 
-import com.sun.istack.internal.NotNull;
-
-import javax.persistence.*;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import java.util.Date;
+import javax.persistence.OneToOne;
 
 /**
- * Created by dan on 11.3.15.
+ * Created by martin on 08/04/15.
  */
 @Entity
-public class ExamResult extends AbstractEntity {
+public class ExamResult {
 
-    @Id
-    @GeneratedValue
-    private int id;
-    @NotNull
-    private Date date;
-    @NotNull
-    @ManyToOne
-    private Course course;
-    @NotNull
-    @ManyToOne
-    private Student student;
-    @NotNull
-    @ManyToOne
-    private Teacher teacher;
 
 }
