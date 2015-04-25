@@ -1,3 +1,4 @@
+import junit.framework.Assert;
 import persistence.DAO.Impl.CourseDAOImpl;
 import persistence.DAO.Impl.StudentDAOImpl;
 import persistence.model.Course;
@@ -14,15 +15,28 @@ public class CoureseDAOTest {
     @Test
     public void createTest() {
         Course course = new Course();
-        course.setId(4);
         courseDao.createObject(course);
+        Assert.assertEquals(course, courseDao.readObjectById(course.getId()));
     }
 
     @Test
-    public void createStrudent() {
-        Student student = new Student("name", "lase", "mail-klokot");
-        studentDAO.createObject(student);
+    public void deleteTest(){
+        Course course = new Course();
+        courseDao.createObject(course);
+        courseDao.deleteObject(course.getId());
+        Assert.assertNull(courseDao.readObjectById(course.getId()));
     }
+
+    @Test
+    public void updateTest(){
+        Course course = new Course();
+        courseDao.createObject(course);
+        course.setCapacity(123);
+        courseDao.updateObject(course);
+        Assert.assertEquals(course,courseDao.readObjectById(course.getId()));
+    }
+
+
 
 
 }

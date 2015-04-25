@@ -1,6 +1,7 @@
 package persistence.model;
 
 import com.sun.istack.internal.NotNull;
+import org.hibernate.annotations.Fetch;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -24,7 +25,7 @@ public class Teacher extends AbstractEntity {
     @NotNull
     @Column(unique = true)
     private String email;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<Course> lecturedCourses = new HashSet<>();
 
     public Teacher() {

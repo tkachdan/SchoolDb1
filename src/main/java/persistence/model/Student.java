@@ -23,7 +23,7 @@ public class Student extends AbstractEntity {
     private String email;
     private double markAverage;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private Set<Course> attendedCouruses = new HashSet<>();
 
     public Student() {
@@ -83,5 +83,35 @@ public class Student extends AbstractEntity {
 
     public void setAttendedCourses(Set<Course> attendedCourses) {
         this.attendedCouruses = attendedCourses;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Student student = (Student) o;
+
+        if (id != student.id) return false;
+        if (Double.compare(student.markAverage, markAverage) != 0) return false;
+        if (firstName != null ? !firstName.equals(student.firstName) : student.firstName != null) return false;
+        if (lastName != null ? !lastName.equals(student.lastName) : student.lastName != null) return false;
+        if (email != null ? !email.equals(student.email) : student.email != null) return false;
+        return !(attendedCouruses != null ? !attendedCouruses.equals(student.attendedCouruses) : student.attendedCouruses != null);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result;
+        long temp;
+        result = id;
+        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        temp = Double.doubleToLongBits(markAverage);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (attendedCouruses != null ? attendedCouruses.hashCode() : 0);
+        return result;
     }
 }
